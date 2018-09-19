@@ -1,0 +1,31 @@
+{
+    "name": "iredcap/pay-php",
+    "description": "移动支付",
+    "keywords": ["alipay", "wechat", "pay"],
+    "type": "library",
+    "support": {
+        "issues": "https://github.com/iredcap/pay/issues",
+        "source": "https://github.com/iredcap/pay"
+    },
+    "authors": [
+        {
+            "name": "iredcap",
+            "email": "me@iredcap.cn"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iredcap\\Pay\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Iredcap\\Pay\\Tests\\": "tests"
+        }
+    },
+    "license": "MIT"
+}
