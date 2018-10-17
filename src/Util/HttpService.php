@@ -1,23 +1,21 @@
 <?php
 /**
- * +---------------------------------------------------------------------+
- * | Yubei         | [ WE CAN DO IT JUST THINK ]
- * +---------------------------------------------------------------------+
- * | Licensed    | http://www.apache.org/licenses/LICENSE-2.0 )
- * +---------------------------------------------------------------------+
- * | Author       | Brian Waring <BrianWaring98@gmail.com>
- * +---------------------------------------------------------------------+
- * | Company   | 小红帽科技      <Iredcap. Inc.>
- * +---------------------------------------------------------------------+
- * | Repository | https://github.com/BrianWaring/Yubei
- * +---------------------------------------------------------------------+
+ *  +----------------------------------------------------------------------
+ *  | 草帽支付系统 [ WE CAN DO IT JUST THINK ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2018 http://www.iredcap.cn All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed ( https://www.apache.org/licenses/LICENSE-2.0 )
+ *  +----------------------------------------------------------------------
+ *  | Author: Brian Waring <BrianWaring98@gmail.com>
+ *  +----------------------------------------------------------------------
  */
 
-namespace Iredcap\Pay\Util;
+namespace IredCap\Pay\Util;
 
-use Iredcap\Pay\exception\Exception;
-use Iredcap\Pay\exception\InvalidResponseException;
-use Iredcap\Pay\Pay;
+use IredCap\Pay\Exception\Exception;
+use IredCap\Pay\Exception\InvalidResponseException;
+use IredCap\Pay\Pay;
 
 Log::Init();
 class HttpService
@@ -56,7 +54,7 @@ class HttpService
             'noncestr:'.$noncestr,
             'timestamp:'.$timestamp,
             'authentication:'.Pay::getSecretKey(),
-            'X-Yubei-Client-User-Agent:'.json_encode([
+            'X-Caomao-Client-User-Agent:'.json_encode([
                 'version:'.Pay::getApiVersion(),
                 'terminal:'.php_uname(),
             ])
@@ -188,7 +186,7 @@ class HttpService
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->header);
         //发送请求读取输数据
         $data = curl_exec($ch);
-        halt($data);
+
         try{
             $body_data = null;
             $res_header = substr($data, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));

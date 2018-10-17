@@ -1,37 +1,48 @@
 <?php
+/**
+ *  +----------------------------------------------------------------------
+ *  | 草帽支付系统 [ WE CAN DO IT JUST THINK ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2018 http://www.iredcap.cn All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed ( https://www.apache.org/licenses/LICENSE-2.0 )
+ *  +----------------------------------------------------------------------
+ *  | Author: Brian Waring <BrianWaring98@gmail.com>
+ *  +----------------------------------------------------------------------
+ */
 
-namespace Iredcap\Pay;
+namespace IredCap\Pay;
 
 class Pay
 {
     const CAHRSET = 'utf-8';
     /**
-     * $var string The Yubei API version
+     * $var string The Caomao API version
      */
     public static $version = '1.0.0';
 
     /**
-     * @var string The base URL for the Yubei unifiedorder.
+     * @var string The base URL for the Caomao unifiedorder.
      */
-    public static $baseUrl = 'http://api.yubei.cn/pay/unifiedorder';
+    public static $baseUrl = 'https://api.iredcap.com/pay/unifiedorder';
 
     /**
-     * @var string The base URL for the Yubei orderquery.
+     * @var string The base URL for the Caomao orderquery.
      */
-    public static $queryUrl = 'http://api.yubei.cn/pay/orderquery';
+    public static $queryUrl = 'https://api.iredcap.com/pay/orderquery';
 
     /**
-     * @var string The Yubei mch ID
+     * @var string The Caomao mch ID
      */
     private static $mchId = null;
 
     /**
-     * @var string The Yubei notifyUrl
+     * @var string The Caomao notifyUrl
      */
     private static $notifyUrl = null;
 
     /**
-     * @var string The Yubei returnUrl
+     * @var string The Caomao returnUrl
      */
     private static $returnUrl = null;
 
@@ -46,12 +57,12 @@ class Pay
     private static $publicKeyPath = null;
 
     /**
-     * @var null The Yubei privateKeyPath
+     * @var null The Caomao privateKeyPath
      */
     private static $privateKeyPath = null;
 
     /**
-     * @var null The Yubei privateKeyPath
+     * @var null The Caomao privateKeyPath
      */
     private static $payPublicKeyPath = null;
 

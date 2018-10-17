@@ -1,6 +1,17 @@
 <?php
+/**
+ *  +----------------------------------------------------------------------
+ *  | 草帽支付系统 [ WE CAN DO IT JUST THINK ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2018 http://www.IredCap.cn All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed ( https://www.apache.org/licenses/LICENSE-2.0 )
+ *  +----------------------------------------------------------------------
+ *  | Author: Brian Waring <BrianWaring98@gmail.com>
+ *  +----------------------------------------------------------------------
+ */
 
-namespace Iredcap\Pay\Util;
+namespace IredCap\Pay\Util;
 
 date_default_timezone_set('PRC');
 
@@ -8,7 +19,7 @@ class Log
 {
     private $level = 15;
 
-    private $file = 'iredcap_pay_log.txt';
+    private $file = "./pay.log";
 
     private static $instance = null;
 

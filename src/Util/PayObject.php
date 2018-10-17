@@ -1,28 +1,26 @@
 <?php
 /**
- * +---------------------------------------------------------------------+
- * | Yubei         | [ WE CAN DO IT JUST THINK ]
- * +---------------------------------------------------------------------+
- * | Licensed    | http://www.apache.org/licenses/LICENSE-2.0 )
- * +---------------------------------------------------------------------+
- * | Author       | Brian Waring <BrianWaring98@gmail.com>
- * +---------------------------------------------------------------------+
- * | Company   | 小红帽科技      <Iredcap. Inc.>
- * +---------------------------------------------------------------------+
- * | Repository | https://github.com/BrianWaring/Yubei
- * +---------------------------------------------------------------------+
+ *  +----------------------------------------------------------------------
+ *  | 草帽支付系统 [ WE CAN DO IT JUST THINK ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2018 http://www.IredCap.cn All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed ( https://www.apache.org/licenses/LICENSE-2.0 )
+ *  +----------------------------------------------------------------------
+ *  | Author: Brian Waring <BrianWaring98@gmail.com>
+ *  +----------------------------------------------------------------------
  */
+namespace IredCap\Pay\Util;
 
-namespace Iredcap\Pay\Util;
-
-use Iredcap\Pay\exception\AuthorizationException;
-use Iredcap\Pay\exception\InvalidRequestException;
-use Iredcap\Pay\Pay;
+use IredCap\Pay\exception\AuthorizationException;
+use IredCap\Pay\exception\InvalidRequestException;
+use IredCap\Pay\Pay;
 
 class PayObject
 {
 
     /**
+     * 发起请求
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
@@ -31,7 +29,7 @@ class PayObject
      * @return mixed
      * @throws AuthorizationException
      * @throws InvalidRequestException
-     * @throws \Iredcap\Pay\exception\Exception
+     * @throws \IredCap\Pay\exception\Exception
      */
     protected static function _request($url = null, $params = null)
     {
