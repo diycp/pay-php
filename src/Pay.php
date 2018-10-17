@@ -24,12 +24,12 @@ class Pay
     /**
      * @var string The base URL for the Caomao unifiedorder.
      */
-    public static $baseUrl = 'https://api.iredcap.com/pay/unifiedorder';
+    public static $baseUrl = 'https://api.iredcap.cn/pay/unifiedorder';
 
     /**
      * @var string The base URL for the Caomao orderquery.
      */
-    public static $queryUrl = 'https://api.iredcap.com/pay/orderquery';
+    public static $queryUrl = 'https://api.iredcap.cn/pay/orderquery';
 
     /**
      * @var string The Caomao mch ID
