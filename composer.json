@@ -1,7 +1,7 @@
 {
     "name": "iredcap/pay-php",
     "description": "Payment SDK",
-    "license": "MTI",
+    "license": "MIT",
     "authors": [
         {
             "name": "Brian Waring",
