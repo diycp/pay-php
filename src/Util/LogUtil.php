@@ -3,19 +3,18 @@
  *  +----------------------------------------------------------------------
  *  | 草帽支付系统 [ WE CAN DO IT JUST THINK ]
  *  +----------------------------------------------------------------------
- *  | Copyright (c) 2018 http://www.IredCap.cn All rights reserved.
+ *  | Copyright (c) 2018 http://www.iredcap.cn All rights reserved.
  *  +----------------------------------------------------------------------
  *  | Licensed ( https://www.apache.org/licenses/LICENSE-2.0 )
  *  +----------------------------------------------------------------------
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-
 namespace IredCap\Pay\Util;
 
 date_default_timezone_set('PRC');
 
-class Log
+class LogUtil
 {
     private $level = 15;
 
@@ -27,7 +26,7 @@ class Log
 
     private function __clone(){}
 
-    public static function Init($level = 15)
+    private static function Init($level = 15)
     {
         if(!self::$instance instanceof self)
         {
@@ -42,17 +41,17 @@ class Log
         $this->level = $level;
     }
 
-    public static function DEBUG($msg)
+    public static function DEBUG($msg,$level = 15)
     {
-        self::$instance->write(1, $msg);
+        self::Init($level)->write(1, $msg);
     }
 
-    public static function WARN($msg)
+    public static function WARN($msg,$level = 15)
     {
-        self::$instance->write(4, $msg);
+        self::Init($level)->write(1, $msg);
     }
 
-    public static function ERROR($msg)
+    public static function ERROR($msg,$level = 15)
     {
         $debugInfo = debug_backtrace();
         $stack = "[";
@@ -68,12 +67,12 @@ class Log
             }
         }
         $stack .= "]";
-        self::$instance->write(8, $stack . $msg);
+        self::Init($level)->write(8, $stack . $msg);
     }
 
-    public static function INFO($msg)
+    public static function INFO($msg,$level = 15)
     {
-        self::$instance->write(2, $msg);
+        self::Init($level)->write(2, $msg);
     }
 
     private function getLevelStr($level)

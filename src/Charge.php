@@ -10,12 +10,14 @@
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-
 namespace IredCap\Pay;
 
-use IredCap\Pay\Util\PayObject;
+use IredCap\Pay\Http\HttpRequest;
+use IredCap\Pay\Constant\HttpMethod;
+use IredCap\Pay\Util\HttpUtil;
+use IredCap\Pay\Util\SignUtil;
 
-class Charge extends PayObject
+class Charge extends HttpRequest
 {
 
     /**
@@ -23,32 +25,53 @@ class Charge extends PayObject
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @param null $params
-     * @return mixed
-     * @throws exception\AuthorizationException
-     * @throws exception\Exception
-     * @throws exception\InvalidRequestException
+     * @param array $params
+     *
+     * @return mixed|string
+     * @throws Exception\InvalidParameterException
+     * @throws Exception\InvalidRequestException
      */
-    public static function create($params = null)
+    public static function create($params = [])
     {
-
-        return self::_request(Pay::$baseUrl,$params);
+        return self::_request(self::getBaseUrl() . 'pay/unifiedorder',HttpMethod::POST,  $params);
     }
 
     /**
-     * 支付回调
+     * 订单查询
      *
-     * @param $chargeId
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $params
+     *
      * @return mixed|string
-     * @throws Exception\Exception
-     * @throws exception\AuthorizationException
-     * @throws exception\InvalidRequestException
+     * @throws Exception\InvalidParameterException
+     * @throws Exception\InvalidRequestException
      */
-    public static function retrieve($chargeId)
+    public static function query($params)
     {
-        if (empty($chargeId)){
-            return 'chargeId can not be blank.';
+        return self::_request(self::getBaseUrl() . 'pay/orderquery', HttpMethod::POST, $params);
+    }
+
+    /**
+     * 回调验签
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return bool
+     * @throws Exception\InvalidResponseException
+     */
+    public static function verify(){
+        //获取通知数据
+        $params = file_get_contents("php://input");
+
+        //获取通知头部
+        foreach ($_SERVER as $name => $value)
+        {
+            if (substr($name, 0, 5) == 'HTTP_')
+            {
+                $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+            }
         }
-        return self::_request(Pay::$baseUrl.'/'.$chargeId);
+       return SignUtil::to_verify_data($headers, $params);
     }
 }

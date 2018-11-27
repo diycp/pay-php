@@ -10,8 +10,16 @@
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-namespace IredCap\Pay\Exception;
+namespace IredCap\Pay\Constant;
 
-class InvalidParameterException extends Exception
-{
+
+/**
+ * HTTP Schema常量
+ */
+class HttpSchema {
+    //HTTP
+    const HTTP = "http://";
+    //HTTPS
+    const HTTPS = "https://";
+
 }

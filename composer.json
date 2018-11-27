@@ -9,12 +9,16 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=5.6"
     },
     "autoload": {
         "psr-4": {
             "IredCap\\Pay\\": "src"
         }
     },
-    "license": "MIT"
+    "autoload-dev": {
+        "psr-4": {
+            "IredCap\\Pay\\Tests\\": "example"
+        }
+    }
 }

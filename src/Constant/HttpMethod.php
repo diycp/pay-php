@@ -10,8 +10,20 @@
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-namespace IredCap\Pay\Exception;
+namespace IredCap\Pay\Constant;
 
-class InvalidParameterException extends Exception
-{
+/**
+ * HTTP方法常量
+ */
+class HttpMethod {
+    //GET
+    const GET = "GET";
+    //POST
+    const POST = "POST";
+    //PUT
+    const PUT = "PUT";
+    //DELETE
+    const DELETE = "DELETE";
+	//HEAD
+    const HEAD = "HEAD";
 }

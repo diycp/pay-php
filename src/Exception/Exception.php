@@ -10,9 +10,7 @@
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-
 namespace IredCap\Pay\Exception;
-
 
 class Exception extends \Exception
 {

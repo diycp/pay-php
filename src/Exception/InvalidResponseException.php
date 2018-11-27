@@ -10,7 +10,6 @@
  *  | Author: Brian Waring <BrianWaring98@gmail.com>
  *  +----------------------------------------------------------------------
  */
-
 namespace IredCap\Pay\Exception;
 
 class InvalidResponseException extends Exception
